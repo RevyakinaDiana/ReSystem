@@ -8,32 +8,24 @@ namespace WebLibrary
 {
     public class Folder
     {
-        long FolderId { get; set; }
-        string NameFolder { get; set; }
-        Folder Parentfolder { get; set; }
-        DateTime DataSozdania { get; set; }
-        DateTime DataIzmenenia { get; set; }
-        User Avtor { get; set; }
-        User ChengdBy { get; set; }
-        List<UserGroup> AllowAccesTo { get; set; }
-        public void SearchPath()
+       public long FolderId { get; set; }
+        public string NameFolder { get; set; }
+        public Folder Parentfolder { get; set; }
+        public DateTime DataSozdania { get; set; }
+        public DateTime DataIzmenenia { get; set; }
+        public User Avtor { get; set; }
+        public User ChengdBy { get; set; }
+        public List<UserGroup> AllowAccesTo { get; set; }
+        public string PathSearch()
         {
-            string partialpath="", fullpath="";
+          
             Folder folder = new Folder();
-            while (folder.Parentfolder != null)
-            {
-                if (folder.Parentfolder != null)
-                {
-                    partialpath = fullpath;
-                    fullpath = folder.NameFolder + @"\" + partialpath;
-                    folder = Parentfolder;
-                }
-                else
-                {
-                    partialpath = fullpath;
-                    fullpath = folder.NameFolder + @"\" + partialpath;
-                }
-            }
+
+            if (folder.Parentfolder != null)
+                return folder.Parentfolder.PathSearch() + @"\" + folder.NameFolder;
+            else
+                return Parentfolder.PathSearch() + @":\" + NameFolder;
+        }
         }
 
 
@@ -46,4 +38,4 @@ namespace WebLibrary
    
    
   
-}
+

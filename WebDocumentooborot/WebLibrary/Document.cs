@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace WebLibrary
 {
-    class Document: Folder
+   public class Document: Folder
     {
-        long DocumentId { get; set; }
-        string discription { get; set; }
-        List<Version> LisVersion { get; set; }
-        string Type { get; set; }
-        List<Kommentarii> ListKomment { get; set; }
+        public long DocumentId { get; set; }
+        public string discription { get; set; }
+        public List<Version> LisVersion { get; set; }
+       public string Type { get; set; }
+       public List<Kommentarii> ListKomment { get; set; }
     }
 }

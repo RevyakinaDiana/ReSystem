@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace WebLibrary
 {
-    class UserGroup
+    public class UserGroup
     {
-        long UserGroupId { get; set; }
-        string NameUserGroup { get; set; }
-        string discription { get; set; }
-        List<User> ListUser { get; set; }
-        File Avatarka { get; set; }
-        Permission permission { get; set; }
+       public long UserGroupId { get; set; }
+       public string NameUserGroup { get; set; }
+       public string discription { get; set; }
+       public List<User> ListUser { get; set; }
+      public File Avatarka { get; set; }
+       public Permission permission { get; set; }
     }
 }

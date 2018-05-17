@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace WebLibrary
 {
-    class User
+  public  class User
     {
-        long UserId { get; set; }
-        string login { get; set; }
-        string password { get; set; }
-        string Sol { get; set; }
-        string surname { get; set; }
-        string name { get; set; }
+      public  long UserId { get; set; }
+        public string login { get; set; }
+        public string password { get; set; }
+        public string Sol { get; set; }
+        public string surname { get; set; }
+        public string name { get; set; }
 
-        string patronymic { get; set; }
-        string Email { get; set; }
-        DateTime DateBirth { get; set; }
-        Enum Status { get; set; }
+        public string patronymic { get; set; }
+        public string Email { get; set; }
+        public DateTime DateBirth { get; set; }
+        public Enum Status { get; set; }
+        public File Avatar { get; set; }
     }
 }

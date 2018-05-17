@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WebLibrary
 {
-    class Kommentarii
+   public class Kommentarii
     {
-        long KommentariiId { get; set; }
-        string text { get; set; }
-        User Sender { get; set; }
-        Kommentarii AnswerTo { get; set; }
+       public long KommentariiId { get; set; }
+      public  string text { get; set; }
+        public User Sender { get; set; }
+       public Kommentarii AnswerTo { get; set; }
     }
 }

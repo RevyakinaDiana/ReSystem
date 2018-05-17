@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace WebLibrary
 {
-    class Versia
+   public class Versia
     {
-        long VersiaId { get; set; }
-        File file { get; set; }
-        string TypeVersia { get; set; } //на случай, если версия имеет формат 3.10.122
-        DateTime DataSozdania { get; set; }
-        DateTime DataIzmenenia { get; set; }
-        User Avtor { get; set; }
-        Enum Status { get; set; }
+        public   long VersiaId { get; set; }
+        public  File file { get; set; }
+        public string TypeVersia { get; set; } //на случай, если версия имеет формат 3.10.122
+        public DateTime DataSozdania { get; set; }
+        public DateTime DataIzmenenia { get; set; }
+        public User Avtor { get; set; }
+        public Enum Status { get; set; }
 
     }
 }

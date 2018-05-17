@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace WebLibrary
 {
-    class File
+  public  class File
     {
-        long FileId { get; set; }
-        string type { get; set; }
-        double size { get; set; }
+      public  long FileId { get; set; }
+      public  string type { get; set; }
+       public double size { get; set; }
     }
 }
