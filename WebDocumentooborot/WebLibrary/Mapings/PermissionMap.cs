@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace WebLibrary.Mapings
 {
-    class PermissionMap:ClassMap<Permission>
+    public class PermissionMap : ClassMap<Permission>
     {
         public PermissionMap()
         {
-            Id(p => p.PermisionId);
-            Map(p => p.discription).Length(100);
-            Map(p => p.accesslevel);
+            Id(p => p.PermissionID).GeneratedBy.Identity();
+            Map(p => p.Description).Length(100);
+            Map(p => p.PermissionLevel);
+            References(p => p.ReferredTo);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NHibernate;
+using NHibernate.Criterion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,23 +8,25 @@ using System.Threading.Tasks;
 
 namespace WebLibrary.Metods
 {
-    public class FolderMetods
+    [Repository]
+    public class FolderRepository : Repository<Folder>
     {
-        public void AddFolder()
+        public FolderRepository(ISession session) : base(session)
         {
-
         }
-        public void ChengeFolder()
-        {
 
-        }
-        public void DeleteFolder()
+        public IList<Folder> GetFolders(long? id)
         {
-
-        }
-        public void GetByChangeDate()
-        {
-
+            var crit = session.CreateCriteria<Folder>();
+            if (id.HasValue)
+            {
+                crit = crit.Add(Restrictions.Eq("ParentFolder.Id", id.Value));
+            }
+            else
+            {
+                crit = crit.Add(Restrictions.IsNull("ParentFolder"));
+            }
+            return crit.List<Folder>();
         }
     }
 }

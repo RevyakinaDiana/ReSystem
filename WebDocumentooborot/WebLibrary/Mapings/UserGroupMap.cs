@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace WebLibrary.Mapings
 {
-    class UserGroupMap: ClassMap<UserGroup>
+    public class UserGroupMap : ClassMap<UserGroup>
     {
-        public void UserGroup()
+        public UserGroupMap()
         {
-            Id(ug => ug.UserGroupId);
-            Map(ug => ug.NameUserGroup).Length(30);
-            Map(ug => ug.discription).Length(100);
-            References(ug => ug.Avatarka);
-            HasMany(ug => ug.ListUser)
-                .Inverse().Cascade.All();
-            References(ug => ug.permission);
+            Id(u => u.UserGroupID).GeneratedBy.Identity();
+            References(u => u.AccessPermition);
+            Map(u => u.Description).Length(100);
+            References(u => u.GroupAvatar);
+            Map(u => u.GroupName).Length(50);
+            HasMany(u => u.UserList)
+                .Inverse()
+                .Cascade.All();
         }
     }
 }

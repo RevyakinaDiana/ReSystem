@@ -7,21 +7,20 @@ using System.Threading.Tasks;
 
 namespace WebLibrary.Mapings
 {
-    class FolderMap : ClassMap<Folder>
+    public class FolderMap : ClassMap<Folder>
     {
         public FolderMap()
         {
-            Id(f => f.FolderId);
-            Map(f => f.NameFolder).Length(30);
-            Map(f => f.DataSozdania);
-            Map(f => f.DataIzmenenia);
-            References(f => f.Avtor);
-            References(f => f.ChengdBy);
-            References(f => f.Parentfolder);
-            HasMany(f => f.AllowAccesTo)
-                .Inverse().Cascade.All();
-
-           
+            Id(f => f.FolderID).GeneratedBy.Identity();
+            Map(f => f.ChangeDate);
+            HasMany(f => f.AllowAccessTo)
+                .Inverse()
+                .Cascade.All();
+            References(f => f.Author);
+            References(f => f.ChangedBy);
+            Map(f => f.CreationDate);
+            Map(f => f.Foldername).Length(100);
+            References(f => f.ParentFolder);
         }
     }
-    }
+}

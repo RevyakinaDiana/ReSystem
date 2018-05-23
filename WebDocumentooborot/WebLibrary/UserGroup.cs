@@ -8,11 +8,12 @@ namespace WebLibrary
 {
     public class UserGroup
     {
-       public long UserGroupId { get; set; }
-       public string NameUserGroup { get; set; }
-       public string discription { get; set; }
-       public List<User> ListUser { get; set; }
-      public File Avatarka { get; set; }
-       public Permission permission { get; set; }
+        public virtual long UserGroupID { get; set; }
+        public virtual string GroupName { get; set; }
+        public virtual string Description { get; set; }
+        public virtual IList<User> UserList { get; set; }
+        public virtual File GroupAvatar { get; set; }
+        public virtual Permission AccessPermition { get; set; }
+
     }
 }

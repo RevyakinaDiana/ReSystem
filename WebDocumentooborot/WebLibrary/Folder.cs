@@ -8,15 +8,15 @@ namespace WebLibrary
 {
     public class Folder
     {
-       public long FolderId { get; set; }
-        public string NameFolder { get; set; }
-        public Folder Parentfolder { get; set; }
-        public DateTime DataSozdania { get; set; }
-        public DateTime DataIzmenenia { get; set; }
-        public User Avtor { get; set; }
-        public User ChengdBy { get; set; }
-        public List<UserGroup> AllowAccesTo { get; set; }
-        public string PathSearch()
+        public virtual long FolderID { get; set; }
+        public virtual string Foldername { get; set; }
+        public virtual Folder ParentFolder { get; set; }
+        public virtual DateTime CreationDate { get; set; }
+        public virtual DateTime ChangeDate { get; set; }
+        public virtual User Author { get; set; }
+        public virtual User ChangedBy { get; set; }
+        public virtual List<Permission> AllowAccessTo { get; set; }
+       /* public string PathSearch()
         {
           
             Folder folder = new Folder();
@@ -25,7 +25,7 @@ namespace WebLibrary
                 return folder.Parentfolder.PathSearch() + @"\" + folder.NameFolder;
             else
                 return Parentfolder.PathSearch() + @":\" + NameFolder;
-        }
+        }*/
         }
 
 

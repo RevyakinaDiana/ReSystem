@@ -1,0 +1,33 @@
+﻿@model WebApplication3.Models.GroupUserViewModel
+@{
+    ViewBag.Title = "GroupUser";
+}
+
+<h2>Группы пользователей</h2>
+@Html.ValidationSummary()
+<table border="1">
+
+    <tr>
+        <td>ID</td>
+        <td>GroupName</td>
+        <td>Description</td>
+        
+    </tr>
+    @foreach (var group in Model.UserGroups)
+    {
+        <tr>
+            <td>@group.UserGroupID</td>
+            <td>@group.GroupName</td>
+            <td>@group.Description</td>
+            <td>  @Html.ActionLink("Изменить", "Change", "User", new { id = group.UserGroupID }, null)</td>
+        </tr>
+
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Добавить группу", "CreateUser", "User")
+</div>
+
+
+

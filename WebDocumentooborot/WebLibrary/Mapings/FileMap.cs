@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace WebLibrary.Mapings
 {
-    class FileMap: ClassMap<File>
+    public class FileMap : ClassMap<File>
     {
         public FileMap()
         {
-            Id(f1 => f1.FileId);
-            Map(f1 => f1.type).Length(30);
-            Map(f1 => f1.size);
+            Id(f => f.FileId).GeneratedBy.Identity();
+            Map(f => f.Path).Length(100);
+            Map(f => f.Size);
+            Map(f => f.Type);
+            Map(f => f.Content).Length(int.MaxValue);
         }
     }
 }

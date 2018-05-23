@@ -7,25 +7,23 @@ using System.Threading.Tasks;
 
 namespace WebLibrary.Mapings
 {
-  public  class UserMap: ClassMap<User>
+    public class UserMap : ClassMap<User>
     {
         public UserMap()
         {
-            Id(u => u.UserId);
-            Map(u => u.login).Length(30);
-            Map(u => u.password).Column("PasswordHash");
-            Map(u => u.name).Length(20);
-            Map(u => u.surname).Length(30);
-            Map(u => u.Sol).Length(30);
-            Map(u => u.patronymic).Length(20);
-            Map(u => u.Email).Length(30);
-            Map(u => u.DateBirth);
-            Map(u => u.Status).Length(30);
+            Id(u => u.Id).GeneratedBy.Identity();
+            Map(u => u.UserName).Length(30);
+            Map(u => u.Password).Column("PasswordHash");
+            Map(u => u.FirstName).Length(100);
+            Map(u => u.LastName).Length(100);
+            Map(u => u.SecondName).Length(100);
+            Map(u => u.Salt).Length(30);
+            Map(u => u.Email).Length(100);
+            Map(u => u.DateofBirth);
             References(u => u.Avatar);
-            
-                
-        }
+            Map(u => u.Status);
+            References(u => u.InGroup);
 
-       
+        }
     }
 }

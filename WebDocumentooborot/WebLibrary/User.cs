@@ -1,24 +1,30 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebLibrary.Models;
 
 namespace WebLibrary
 {
-  public  class User
+  public  class User:IUser<long>
     {
-      public  long UserId { get; set; }
-        public string login { get; set; }
-        public string password { get; set; }
-        public string Sol { get; set; }
-        public string surname { get; set; }
-        public string name { get; set; }
+        public virtual long Id { get; set; }
+        public virtual string UserName { get; set; }
+        public virtual string Password { get; set; }
+        public virtual string Salt { get; set; }
+        public virtual string LastName { get; set; }
+        public virtual string FirstName { get; set; }
+        public virtual string SecondName { get; set; }
+        public virtual File Avatar { get; set; }
+        public virtual string Email { get; set; }
+        public virtual DateTime DateofBirth { get; set; }
+        public virtual UserStatus Status { get; set; }
+        public virtual UserGroup InGroup { get; set; }
 
-        public string patronymic { get; set; }
-        public string Email { get; set; }
-        public DateTime DateBirth { get; set; }
-        public Enum Status { get; set; }
-        public File Avatar { get; set; }
+        
+
+       
     }
 }

@@ -8,8 +8,9 @@ namespace WebLibrary
 {
     public class Permission
     {
-        public long PermisionId;
-        public int accesslevel { get; set; }
-        public string discription { get; set; }
+        public virtual long PermissionID { get; set; }
+        public virtual int PermissionLevel { get; set; }
+        public virtual string Description { get; set; }
+        public virtual Folder ReferredTo { get; set; }
     }
 }

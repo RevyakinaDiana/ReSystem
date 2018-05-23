@@ -11,8 +11,15 @@ namespace WebApplication3
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+           
+        }
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var ex = Server.GetLastError();
+            if(ex is NullReferenceException)
+            {
+                Server.Transfer("Error.cshtml");
+            }
         }
     }
 }

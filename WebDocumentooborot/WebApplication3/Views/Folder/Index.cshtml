@@ -1,0 +1,56 @@
+﻿@model WebApplication3.Models.FolderViewModel
+@{ 
+
+    var title = Model.CurrentFolder != null ? Model.CurrentFolder.Foldername : "Хранилище документов";
+    ViewBag.Title = title;
+}
+
+<h2>@title</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create", new { id = Model.CurrentFolder != null ? Model.CurrentFolder.FolderID : (long?)null })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Название папки
+        </th>
+        <th>
+            Дата изменения
+        </th>
+        <th>
+            Автор изменения
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.ParentFolder != null)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("/...", "Index", new { id = Model.ParentFolder.FolderID })
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    }
+    @foreach (var item in Model.Folders)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Foldername, "Index", new { id = item.FolderID })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChangeDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChangedBy)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>*@
+        </tr>
+    }
+</table>
+

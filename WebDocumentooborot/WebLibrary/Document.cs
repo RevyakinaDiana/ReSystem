@@ -8,10 +8,12 @@ namespace WebLibrary
 {
    public class Document: Folder
     {
-        public long DocumentId { get; set; }
-        public string discription { get; set; }
-        public List<Version> LisVersion { get; set; }
-       public string Type { get; set; }
-       public List<Kommentarii> ListKomment { get; set; }
+        public virtual long DocumentID { get; set; }
+        public virtual string Description { get; set; }
+        public virtual List<Version> VersionList { get; set; }
+        public virtual string DocumentType { get; set; }
+        public virtual List<Commentary> CommentaryList { get; set; }
+        public virtual File File { get; set;}
+        public virtual Document Documents { get; set; }
     }
 }
